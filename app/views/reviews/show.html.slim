@@ -1,0 +1,19 @@
+.container
+	h3 Заголовок
+	= review.title
+	br
+	h3 Отзыв
+	= review.text
+	br
+	= link_to 'Edit', edit_review_path(review), class: 'btn btn-primary'
+	- review.comments.each do |comment|
+		.media.comment-box
+		  .media-left
+		    a href="#" 
+		      img.img-responsive.user-photo src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" /
+		  .media-body
+		    h4.media-heading = comment.user.email
+		    = link_to 'Destroy', [comment.review, comment], method: :delete, data: {confirm: 'Are you sure?'}
+		    p = comment.text
+
+	= render 'comments/form'

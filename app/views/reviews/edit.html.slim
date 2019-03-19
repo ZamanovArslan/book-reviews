@@ -1,0 +1,8 @@
+.container
+
+	h1 Editing Review
+
+	= render 'form', review: review
+
+	= link_to 'Show', review
+	= link_to "Back", user_reviews_url(current_user)

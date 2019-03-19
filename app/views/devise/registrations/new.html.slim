@@ -1,0 +1,21 @@
+= stylesheet_link_tag 'devise/form', media: 'all', 'data-turbolinks-track' => true
+.card.card-container
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form form-signin') do |f|
+    = f.error_notification
+    h3.mb-3
+      | Please sign up
+    .form-group
+      label.sr-only[for="inputEmail"]
+      = f.input :email,
+              required: true,
+              autofocus: true,
+              input_html: {autocomplete: "email", class: 'form-control'}
+    .form-group
+      label.sr-only[for = "inputPassword"]
+      = f.input :password,
+              required: true,
+              input_html: {autocomplete: "password", class: 'form-control'}
+    = f.button :submit, "Sign up", class: 'btn btn-lg btn-primary btn-block btn-signin'
+    p.mt-5.mb-3.text-muted
+    | © 2017-2019
+    = render "devise/shared/links"
