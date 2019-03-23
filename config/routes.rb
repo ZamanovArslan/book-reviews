@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get '/homepage/index'
 
   resources :users, param: :nickname do
-  	resources :reviews
-	end
+    resources :reviews
+  end
 
-	resources :reviews do
-  		resources :comments
+  resources :reviews do
+      resources :comments
   end
 end

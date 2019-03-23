@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-	def to_param
-	  nickname
-	end
+  def to_param
+    nickname
+  end
   has_many :reviews
   has_many :comments, through: :reviews
   validates :nickname, uniqueness: true
