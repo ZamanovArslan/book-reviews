@@ -8,13 +8,15 @@
       td Rating
       th colspan="3"
 
-    -reviews.each do |review|
+    - reviews.each do |review|
       tr
         td = review.title
         td = review.rating.to_s + ' / 10'
+        - if allowed_to?(:edit?, review)
+          td = link_to 'Edit', edit_review_path(review)
+        - if allowed_to?(:destroy?, review)
+          td = link_to 'Destroy', review, method: :delete, data: {confirm: 'Are you sure?'}
         td = link_to 'Show', review
-        td = link_to 'Edit', edit_review_path(review)
-        td = link_to 'Destroy', review, method: :delete, data: {confirm: 'Are you sure?'}
 
   = paginate reviews
   br

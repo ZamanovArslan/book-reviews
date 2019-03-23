@@ -1,8 +1,10 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+	def to_param
+	  nickname
+	end
   has_many :reviews
   has_many :comments, through: :reviews
+  validates :nickname, uniqueness: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

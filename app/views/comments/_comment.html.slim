@@ -1,0 +1,9 @@
+.media.comment-box
+  .media-left
+    a href="#" 
+      img.img-responsive.user-photo src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" /
+  .media-body
+    h4.media-heading = comment.user.email 
+    p = comment.text
+  	- if allowed_to?(:destroy?, comment)
+    	= link_to 'Delete comment', [comment.review, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
