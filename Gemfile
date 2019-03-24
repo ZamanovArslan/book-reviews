@@ -16,8 +16,8 @@ gem 'rails', '~> 5.2.1'
 gem 'faker'
 gem "action_policy"
 gem 'draper'
-
-
+gem 'decent_decoration', '~> 0.1.0'
+gem "interactor", "~> 3.0"
 
 # frontend
 gem 'bootstrap', '~> 4.3.1'

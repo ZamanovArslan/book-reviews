@@ -1,3 +1,3 @@
 class UserDecorator < Draper::Decorator
-	delegate :admin, :email, :nickname
+  delegate_all
 end

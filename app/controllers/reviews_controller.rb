@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
-  expose :reviews, ->{ fetch_reviews }
-  expose :review
+  expose_decorated :reviews, ->{ fetch_reviews }
+  expose_decorated :review
+  before_action :authenticate_user!
 
   REVIEW_PARAMS = %i[title text rating].freeze
 
@@ -33,6 +34,6 @@ class ReviewsController < ApplicationController
   end
 
   def fetch_reviews
-    User.find_by(nickname: params[:user_nickname]).reviews.order(:created_at).page params[:page]
+    User.find_by(nickname: params[:user_nickname]).reviews.order(:created_at).page(params[:page])
   end
 end

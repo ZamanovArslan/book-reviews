@@ -11,6 +11,12 @@
               autofocus: true,
               input_html: {autocomplete: "email", class: 'form-control'}
     .form-group
+      label.sr-only[for="nickname"]
+      = f.input :nickname,
+              required: true,
+              autofocus: true,
+              input_html: {autocomplete: "nickname", class: 'form-control'}
+    .form-group
       label.sr-only[for = "inputPassword"]
       = f.input :password,
               required: true,

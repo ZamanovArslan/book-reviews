@@ -1,24 +1,23 @@
 class CommentsController < ApplicationController
-  expose :comments, -> { fetch_comments }
-  expose :comment
+  expose_decorated :comments, :fetch_comments
+  expose_decorated :comment
 
   def create
-    
+    comment.user = current_user
     comment.review = Review.find(params[:review_id])
-    if comment.save
-      redirect_to review_path(comment.review)
-    end
+    comment.save
+    redirect_to review_path(comment.review)
   end
 
   def destroy
     comment.destroy
     redirect_to review_path(comment.review)
   end
-  
+
   private
 
   def comment_params
-    params.require(:comment).permit(:text).merge(comment.user => current_user)
+    params.require(:comment).permit(:text)
   end
 
   def fetch_comments

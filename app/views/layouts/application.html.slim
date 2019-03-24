@@ -14,20 +14,20 @@ html
       #navbarsExampleDefault.collapse.navbar-collapse
         ul.navbar-nav
           li.nav-item
-            - unless current_user.nil?
+            - if user_signed_in?
               = link_to 'My reviews', user_reviews_url(current_user), class: 'nav-link'
           li.nav-item
             a.nav-link[href="#"]
               | Popular
           li.nav-item
-            - unless current_user.nil?
+            - if user_signed_in?
               = link_to 'Edit my profile', edit_user_registration_url(current_user), class: 'nav-link'
         form.form-inline.my-2.my-lg-0.mr-auto
           input.form-control.mr-sm-2[type="text" placeholder="Search" aria-label="Search"]
           button.btn.btn-outline-success.my-2.my-sm-0[type="submit"]
             | Search
         - if user_signed_in?
-          .btn.btn-light.mr-3 
+          .btn.btn-light.mr-3
             = link_to 'Create review', new_review_path
         .form-inline.my-2.my-lg-0.mr-3
           - if user_signed_in?
