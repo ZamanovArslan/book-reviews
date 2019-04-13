@@ -9,32 +9,20 @@ main[role="main"]
         a.btn.btn-primary.btn-lg[href="#" role="button"]
           | Learn more »
   .container
+    h2 Popular reviews
     .row
-      .col-md-4
-        h2
-          | Heading
-        p
-          | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        p
-          a.btn.btn-secondary[href="#" role="button"]
-            | View details »
-      .col-md-4
-        h2
-          | Heading
-        p
-          | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        p
-          a.btn.btn-secondary[href="#" role="button"]
-            | View details »
-      .col-md-4
-        h2
-          | Heading
-        p
-          | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-        p
-          a.btn.btn-secondary[href="#" role="button"]
-            | View details »
+      - reviews.each do |review|
+        .col-md-4
+          .shadow-sm.p-4.mb-4.rounded.review
+            h4
+              = review.short_title
+            p
+              = review.short_text
+            .crud-review-buttons
+              = link_to 'View details', review, class: 'btn btn-secondary'
+              .text-muted = review.views
+
     hr
 footer.container
   p
-    | © Company 2017-2019
+    | © 2019

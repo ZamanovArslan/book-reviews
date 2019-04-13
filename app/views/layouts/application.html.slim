@@ -17,9 +17,6 @@ html
             - if user_signed_in?
               = link_to 'My reviews', user_reviews_url(current_user), class: 'nav-link'
           li.nav-item
-            a.nav-link[href="#"]
-              | Popular
-          li.nav-item
             - if user_signed_in?
               = link_to 'Edit my profile', edit_user_registration_url(current_user), class: 'nav-link'
         form.form-inline.my-2.my-lg-0.mr-auto

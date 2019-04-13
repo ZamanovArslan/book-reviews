@@ -1,9 +1,9 @@
 .container
 	h3 Заголовок
-	= review.title
+	= review.short_title
 	br
 	h3 Отзыв
-	= review.text
+	= review.short_text
 	br
 	-if allowed_to?(:edit?, review)
 		= link_to 'Edit', edit_review_path(review), class: 'btn btn-primary'

@@ -1,9 +1,13 @@
 class ReviewsController < ApplicationController
-  expose_decorated :reviews, ->{ fetch_reviews }
-  expose_decorated :review
+  expose :reviews, ->{ ReviewDecorator.decorate_collection(fetch_reviews) }
+  expose :review, decorate: ->(review){ ReviewDecorator.new(review) }
   before_action :authenticate_user!
 
   REVIEW_PARAMS = %i[title text rating].freeze
+
+  def show
+    review.increment_views
+  end
 
   def create
     review.user = current_user
