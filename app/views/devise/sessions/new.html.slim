@@ -1,4 +1,4 @@
-= stylesheet_link_tag 'devise/form', media: 'all', 'data-turbolinks-track' => true
+= stylesheet_link_tag 'devise/form', media: 'all'
 .card.card-container
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form form-signin') do |f|
     = f.error_notification

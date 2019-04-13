@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/homepage/index'
 
-  resources :users do
-  	resources :reviews
-	end
+  resources :users, param: :nickname, only: [:show] do
+    resources :reviews
+  end
 
-	resources :reviews do
-  		resources :comments
+  resources :reviews do
+      resources :comments
   end
 end
