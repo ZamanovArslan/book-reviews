@@ -24,8 +24,7 @@ html
           button.btn.btn-outline-success.my-2.my-sm-0[type="submit"]
             | Search
         - if user_signed_in?
-          .btn.btn-light.mr-3
-            = link_to "Create review", new_review_path
+           = link_to "Create review", new_review_path, class: "btn btn-light mr-3"
         .form-inline.my-2.my-lg-0.mr-3
           - if user_signed_in?
             span.text-light> Hello,
