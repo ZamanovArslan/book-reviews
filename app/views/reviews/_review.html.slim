@@ -5,8 +5,7 @@
     p
       = review.short_text
     .crud-review-buttons
-      = link_to 'View details', review, class: 'btn btn-secondary'
-      = link_to 'Edit', edit_review_path(review), class: 'btn btn-primary'
-      = link_to 'Destroy', review, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+      = link_to "View details", review, class: "btn btn-secondary"
+      = link_to "Edit", edit_review_path(review), class: "btn btn-primary"
+      = link_to "Destroy", review, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
       = review.views
-

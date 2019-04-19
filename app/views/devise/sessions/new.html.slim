@@ -7,14 +7,14 @@
     .form-group
       label.sr-only[for="inputEmail"]
       = f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email",class: 'form-control' }
+              required: false,
+              autofocus: true,
+              input_html: {autocomplete: "email", class: 'form-control'}
     .form-group
       label.sr-only[for = "inputPassword"]
       = f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password",class: 'form-control' }
+              required: false,
+              input_html: {autocomplete: "current-password", class: 'form-control'}
 
     = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
 

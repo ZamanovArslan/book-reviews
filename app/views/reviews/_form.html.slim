@@ -1,8 +1,8 @@
 = simple_form_for(review) do |f|
-	.form-group
-  	= f.input :title, label: false, placeholder: "Title", input_html: {class: 'form-control'}
-	.form-group
-  	= f.input :text, label: false, placeholder: "Text", input_html: {class: 'form-control'}, as: :text
-	.form-group
-  	= f.input :rating, label: false, placeholder: "rating", input_html: {class: 'form-control'}
-	= f.button :submit, class: 'btn btn-primary mt-2'
+  .form-group
+    = f.input :title, label: false, placeholder: "Title", input_html: { class: "form-control" }
+  .form-group
+    = f.input :text, label: false, placeholder: "Text", input_html: { class: "form-control" }, as: :text
+  .form-group
+    = f.input :rating, label: false, placeholder: "rating", input_html: { class: "form-control" }
+  = f.button :submit, class: "btn btn-primary mt-2"

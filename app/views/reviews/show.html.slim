@@ -1,13 +1,13 @@
 .container
-	h3 Заголовок
-	= review.short_title
-	br
-	h3 Отзыв
-	= review.short_text
-	br
-	-if allowed_to?(:edit?, review)
-		= link_to 'Edit', edit_review_path(review), class: 'btn btn-primary'
+  h3 Заголовок
+  = review.short_title
+  br
+  h3 Отзыв
+  = review.short_text
+  br
+  - if allowed_to?(:edit?, review)
+    = link_to "Edit", edit_review_path(review), class: "btn btn-primary"
 
-	= render review.comments
+  = render review.comments
 
-	= render 'comments/form'
+  = render "comments/form"

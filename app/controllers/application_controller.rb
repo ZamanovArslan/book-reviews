@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   prepend Draper
   # def current_user
-  # 	UserDecorator.decorate(super) unless super.nil?
+  # UserDecorator.decorate(super) unless super.nil?
   # end
 
   protected

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-  expose :reviews, ->{ ReviewDecorator.decorate_collection(fetch_reviews) }
-  expose :review, decorate: ->(review){ ReviewDecorator.new(review) }
+  expose :reviews, -> { ReviewDecorator.decorate_collection(fetch_reviews) }
+  expose :review, decorate: ->(review) { ReviewDecorator.new(review) }
   before_action :authenticate_user!
 
   REVIEW_PARAMS = %i[title text rating].freeze

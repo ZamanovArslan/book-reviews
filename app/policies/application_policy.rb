@@ -8,6 +8,6 @@ class ApplicationPolicy < ActionPolicy::Base
   end
 
   def destroy?
-  	user.admin? || (user.id == record.user_id)
+    user.admin? || (user.id == record.user_id)
   end
 end

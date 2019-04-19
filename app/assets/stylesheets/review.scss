@@ -1,12 +1,14 @@
-.review{
+.review {
+  background-color: #fff;
   height: 300px;
   position: relative;
-  background-color: #fff;
 }
-.crud-review-buttons{
+
+.crud-review-buttons {
   position: absolute;
   bottom: 25px;
 }
-.crud-review-buttons .btn{
+
+.crud-review-buttons .btn {
   margin-right: 10px
 }

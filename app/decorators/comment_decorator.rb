@@ -5,5 +5,4 @@ class CommentDecorator < Draper::Decorator
   def created_at_format
     object.created_at.strftime("%F%I:%M%p")
   end
-
 end

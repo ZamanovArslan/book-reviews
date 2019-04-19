@@ -5,5 +5,5 @@
   .media-body
     h4.media-heading = comment.user.email + comment.created_at_format
     p = comment.text
-  	- if allowed_to?(:destroy?, comment)
-    	= link_to 'Delete comment', [comment.review, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+    - if allowed_to?(:destroy?, comment)
+      = link_to 'Delete comment', [comment.review, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
