@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   expose :reviews, -> { ReviewDecorator.decorate_collection(fetch_reviews) }
   expose :review, decorate: ->(review) { ReviewDecorator.new(review) }
-  before_action :authenticate_user!
 
   REVIEW_PARAMS = %i[title text rating].freeze
+  SEARCH_PARAMS = %i[created_at is_draft rating].freeze
 
   def show
     review.increment_views
@@ -37,7 +38,11 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(*REVIEW_PARAMS)
   end
 
+  def search_params
+    params.permit(*SEARCH_PARAMS)
+  end
+
   def fetch_reviews
-    User.find_by(nickname: params[:user_nickname]).reviews.order(:created_at).page(params[:page])
+    User.find_by(nickname: params[:user_nickname]).reviews.filter(search_params).page(params[:page])
   end
 end

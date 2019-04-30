@@ -1,6 +1,6 @@
 class ReviewDecorator < Draper::Decorator
   delegate_all
-  decorates_association :comment, with: CommentDecorator
+  decorates_association :comments, with: CommentsDecorator
 
   def self.collection_decorator_class
     PaginatingDecorator

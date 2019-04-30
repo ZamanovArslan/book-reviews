@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :reviews, except: [:index]
+  resources :reviews
   root "home#index"
-  get "/homepage/index"
+
+  get "my-profile", to: "users#show"
+  get "my-reviews", to: "reviews#show"
 
   resources :users, param: :nickname, only: [:show] do
-    resources :reviews
+    resource :reviews
   end
 
   resources :reviews do

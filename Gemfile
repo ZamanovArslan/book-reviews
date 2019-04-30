@@ -36,6 +36,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit", require: false
   gem "capybara", "~> 2.13"
+  gem "factory_bot_rails"
   gem "rspec-rails", "~> 3.7"
   gem "rubocop", require: false
   gem "rubocop-performance", require: false

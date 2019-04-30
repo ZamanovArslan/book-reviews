@@ -11,28 +11,28 @@ html
       = link_to "Book Reviews", root_url, class: "navbar-brand"
       button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"]
         span.navbar-toggler-icon
-      #navbarsExampleDefault.collapse.navbar-collapse
+      .collapse.navbar-collapse
         ul.navbar-nav
-          li.nav-item
-            - if user_signed_in?
-              = link_to "My reviews", user_reviews_url(current_user), class: "nav-link"
-          li.nav-item
-            - if user_signed_in?
+          - if user_signed_in?
+            li.nav-item
+              = link_to "My profile", my_profile_url, class: "nav-link"
+            li.nav-item
+              = link_to "My drafts", my_reviews_url(is_draft: true), class: "nav-link"
+            li.nav-item
               = link_to "Edit my profile", edit_user_registration_url(current_user), class: "nav-link"
         form.form-inline.my-2.my-lg-0.mr-auto
           input.form-control.mr-sm-2[type="text" placeholder="Search" aria-label="Search"]
           button.btn.btn-outline-success.my-2.my-sm-0[type="submit"]
             | Search
         - if user_signed_in?
-           = link_to "Create review", new_review_path, class: "btn btn-light mr-3"
+          = link_to "Create review", new_review_path, class: "btn btn-light mr-3"
         .form-inline.my-2.my-lg-0.mr-3
           - if user_signed_in?
-            span.text-light> Hello,
-            .text-light = current_user.nickname
+            .text-light> Hello, #{current_user.nickname}
             .font-weight-bold.d-inline.mr-2
-            = link_to " Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-outline-light"
+            = link_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-outline-light"
           - else
-            = link_to " Sign in", new_user_session_path, class: "btn text-light"
-            = link_to " Sign up", new_user_registration_path, class: "btn btn-outline-light font-weight-light"
+            = link_to "Sign in", new_user_session_path, class: "btn text-light"
+            = link_to "Sign up", new_user_registration_path, class: "btn btn-outline-light font-weight-light"
     .wrap
       = yield
