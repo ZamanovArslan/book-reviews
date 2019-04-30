@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   REVIEW_PARAMS = %i[title text rating].freeze
-
+  SEARCH_PARAMS = %i[rating is_draft].freeze
   def show
     review.increment_views
   end
@@ -37,7 +37,11 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(*REVIEW_PARAMS)
   end
 
+  def search_params
+    params.permit(*SEARCH_PARAMS)
+  end
+
   def fetch_reviews
-    User.find_by(nickname: params[:user_nickname]).reviews.order(:created_at).page(params[:page])
+    User.find_by(nickname: params[:user_nickname]).reviews.page(params[:page])
   end
 end

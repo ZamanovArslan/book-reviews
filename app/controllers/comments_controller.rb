@@ -21,6 +21,6 @@ class CommentsController < ApplicationController
   end
 
   def fetch_comments
-    Review.find(params[:review_id]).comments.order(:created_at)
+    Review.find(params[:review_id]).comments
   end
 end
