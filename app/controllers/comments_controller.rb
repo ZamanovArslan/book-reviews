@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   expose_decorated :comment
 
   def create
-    comment.user = current_user
+    comment.user_id = current_user.id
     comment.review = Review.find(params[:review_id])
     comment.save
     redirect_to review_path(comment.review)

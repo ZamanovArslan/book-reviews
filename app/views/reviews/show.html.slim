@@ -1,8 +1,6 @@
 .container
-  h3 Заголовок
-  = review.short_title
-  br
-  h3 Отзыв
+  .float-right.text-muted = review.draft_display
+  h3 = review.short_title
   = review.short_text
   br
   - if allowed_to?(:edit?, review)

@@ -23,4 +23,10 @@ class ReviewDecorator < Draper::Decorator
     object.views += 1
     object.save
   end
+
+  def draft_display
+    return "Draft" if object.is_draft
+
+    ""
+  end
 end
