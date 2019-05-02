@@ -3,7 +3,7 @@
     .row
       .col-md-4
         .profile-img
-          -if user.avatar.attached?
+          - if user.avatar.attached?
             = image_tag user.avatar, class: "rounded-circle"
       .col-md-6
         .profile-head

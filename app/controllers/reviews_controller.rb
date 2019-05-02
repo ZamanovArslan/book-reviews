@@ -1,12 +1,12 @@
 class ReviewsController < ApplicationController
-  expose :reviews, -> do
+  expose :reviews, lambda {
     authorize! fetch_reviews
     ReviewDecorator.decorate_collection(fetch_reviews)
-  end
-  expose :review, decorate: ->(review) do
+  }
+  expose :review, decorate: lambda { |review|
     authorize! review
     ReviewDecorator.new(review)
-  end
+  }
   before_action :authenticate_user!
 
   REVIEW_PARAMS = %i[title text rating is_draft].freeze
@@ -48,8 +48,8 @@ class ReviewsController < ApplicationController
   end
 
   def user
-    if params[:user_nickname].nil?
-      result = current_user
+    result = if params[:user_nickname].nil?
+      current_user
     else
       result = User.find_by(nickname: params[:user_nickname])
     end
