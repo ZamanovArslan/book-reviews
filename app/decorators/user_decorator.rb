@@ -26,4 +26,10 @@ class UserDecorator < Draper::Decorator
   def finished_reviews
     reviews.where(is_draft: false)
   end
+
+  def filtered_reviews(params)
+    return drafts.page(params[:page]) if params[:is_draft] == "true"
+
+    finished_reviews.page(params[:page])
+  end
 end

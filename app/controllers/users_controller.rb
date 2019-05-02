@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   expose :user, -> { UserDecorator.new(fetch_user) }
 
   def show
-    render "users/show"
   end
 
   def fetch_user
