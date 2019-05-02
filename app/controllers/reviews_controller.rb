@@ -48,7 +48,11 @@ class ReviewsController < ApplicationController
   end
 
   def user
-    result ||= User.find_by(nickname: params[:user_nickname]) || current_user
+    if params[:user_nickname].nil?
+      result = current_user
+    else
+      result = User.find_by(nickname: params[:user_nickname])
+    end
     UserDecorator.new(result)
   end
 end

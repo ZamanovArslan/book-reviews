@@ -2,6 +2,7 @@ class User < ApplicationRecord
   def to_param
     nickname
   end
+  has_one_attached :avatar
 
   has_many :reviews, dependent: :destroy
   has_many :comments, through: :reviews

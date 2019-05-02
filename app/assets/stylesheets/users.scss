@@ -7,6 +7,7 @@
 }
 .profile-img{
   text-align: center;
+  max-height: 250px;
 }
 .profile-img img{
   width: 70%;
@@ -22,12 +23,6 @@
   font-size: 15px;
   background: #212529b8;
 }
-.profile-img .file input {
-  position: absolute;
-  opacity: 0;
-  right: 0;
-  top: 0;
-}
 .profile-head h5{
   color: #333;
 }
@@ -35,10 +30,10 @@
   color: #0062cc;
 }
 .profile-edit-btn{
-  border: none;
   border-radius: 1.5rem;
   width: 70%;
-  padding: 2%;
+  padding: 10px;
+  background: #ececec;
   font-weight: 600;
   color: #6c757d;
   cursor: pointer;

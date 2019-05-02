@@ -15,12 +15,13 @@ class UserDecorator < Draper::Decorator
   def average_rating
     sum = 0
     # TODO: cache?
-    reviews.each { |review| sum += review.rating }
-    "#{sum / reviews.count} \\ 10"
+    finished_reviews.each { |review| sum += review.rating }
+    result = sum.to_f / finished_reviews.count
+    "#{format('%.2f', result)} \\ 10"
   end
 
   def last_reviews(count)
-    reviews.order(created_at: :desc).limit(count)
+    finished_reviews.take(count)
   end
 
   def finished_reviews
@@ -31,5 +32,17 @@ class UserDecorator < Draper::Decorator
     return drafts.page(params[:page]) if params[:is_draft] == "true"
 
     finished_reviews.page(params[:page])
+  end
+
+  def popular_reviews(count)
+    ReviewsDecorator.new finished_reviews.reorder(views: :desc).take(count)
+  end
+
+  def my_avatar(size)
+    if avatar.attached?
+      avatar.variant(resize: "#{size}x#{size}!")
+    else
+      gravatar_image_tag(object.email, size: size)
+    end
   end
 end

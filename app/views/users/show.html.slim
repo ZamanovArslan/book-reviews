@@ -3,9 +3,8 @@
     .row
       .col-md-4
         .profile-img
-          .file.btn.btn-lg.btn-primary
-            | Change Photo
-            input name="file" type="file" /
+          -if user.avatar.attached?
+            = image_tag user.avatar, class: "rounded-circle"
       .col-md-6
         .profile-head
           h5
@@ -21,7 +20,8 @@
             li.nav-item
               = link_to "Reviews", user_reviews_url(user), class: "nav-link"
       .col-md-2
-        input.profile-edit-btn name="btnAddMore" type="submit" value=("Edit Profile") /
+        - if allowed_to?(:modify?, user)
+          = link_to "Edit profile", edit_user_registration_url(current_user), class: "profile-edit-btn"
     .row
       .col-md-4
         .profile-work
@@ -29,7 +29,10 @@
           - user.last_reviews(3).each do |review|
             = link_to review.short_title, review_url(review)
             br
-          p Favorite books
+          p Popular reviews
+          - user.popular_reviews(3).each do |review|
+            = link_to review.short_title, review_url(review)
+            br
 
       .col-md-8
         #myTabContent.tab-content.profile-tab

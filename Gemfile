@@ -15,6 +15,7 @@ gem "decent_exposure", "3.0.0"
 gem "devise"
 gem "draper"
 gem "faker"
+gem "image_processing", "~> 1.2"
 gem "interactor", "~> 3.0"
 gem "kaminari"
 gem "pg", ">= 0.18", "< 2.0"
@@ -24,9 +25,12 @@ gem "rails", "~> 5.2.1"
 # frontend
 gem "bootstrap", "~> 4.3.1"
 gem "coffee-rails", "~> 4.2"
+gem "font-awesome-rails"
+gem "gravatar_image_tag"
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
+
 
 # views
 gem "simple_form"

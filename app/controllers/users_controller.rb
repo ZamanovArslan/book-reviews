@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   end
 
   def fetch_user
-    User.find_by(nickname: params[:nickname]) || current_user
+    return current_user if params[:nickname].nil?
+
+    User.find_by(nickname: params[:nickname])
   end
 end
