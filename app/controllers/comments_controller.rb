@@ -1,6 +1,12 @@
 class CommentsController < ApplicationController
-  expose_decorated :comments, :fetch_comments
-  expose_decorated :comment
+  expose :comments, lambda {
+    authorize! fetch_comments
+    CommentDecorator.decorate_collection(fetch_comments)
+  }
+  expose :comment, decorate: lambda { |comment|
+    authorize! comment
+    CommentDecorator.new(comment)
+  }
 
   def create
     comment.user_id = current_user.id

@@ -29,9 +29,9 @@ class UserDecorator < Draper::Decorator
   end
 
   def filtered_reviews(params)
-    return drafts.page(params[:page]) if params[:is_draft] == "true"
+    return drafts if params[:is_draft] == "true"
 
-    finished_reviews.page(params[:page])
+    finished_reviews
   end
 
   def popular_reviews(count)
@@ -42,6 +42,7 @@ class UserDecorator < Draper::Decorator
     if avatar.attached?
       avatar.variant(resize: "#{size}x#{size}!")
     else
+      # TODO:
       gravatar_image_tag(object.email, size: size)
     end
   end
