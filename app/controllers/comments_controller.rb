@@ -1,9 +1,15 @@
 class CommentsController < ApplicationController
-  expose_decorated :comments, :fetch_comments
-  expose_decorated :comment
+  expose :comments, lambda {
+    authorize! fetch_comments
+    CommentDecorator.decorate_collection(fetch_comments)
+  }
+  expose :comment, decorate: lambda { |comment|
+    authorize! comment
+    CommentDecorator.new(comment)
+  }
 
   def create
-    comment.user = current_user
+    comment.user_id = current_user.id
     comment.review = Review.find(params[:review_id])
     comment.save
     redirect_to review_path(comment.review)

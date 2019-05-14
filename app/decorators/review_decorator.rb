@@ -2,10 +2,6 @@ class ReviewDecorator < Draper::Decorator
   delegate_all
   decorates_association :comments, with: CommentsDecorator
 
-  def self.collection_decorator_class
-    PaginatingDecorator
-  end
-
   def formated_rating
     object.rating.to_s + " / 10"
   end
@@ -22,5 +18,11 @@ class ReviewDecorator < Draper::Decorator
     object.views ||= 0
     object.views += 1
     object.save
+  end
+
+  def draft_display
+    return "Draft" if object.is_draft
+
+    ""
   end
 end

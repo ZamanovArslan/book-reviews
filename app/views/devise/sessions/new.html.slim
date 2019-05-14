@@ -1,4 +1,3 @@
-= stylesheet_link_tag 'devise/form', media: 'all'
 .card.card-container
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name), class: 'form form-signin') do |f|
     = f.error_notification
@@ -21,5 +20,4 @@
     .form-actions
       = f.button :submit, "Log in", class: 'btn btn-lg btn-primary btn-block btn-signin'
     p.mt-5.mb-3.text-muted
-    | © 2017-2019
     = render "devise/shared/links"

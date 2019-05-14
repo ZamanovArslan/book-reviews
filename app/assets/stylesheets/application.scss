@@ -1,5 +1,13 @@
-@import 'bootstrap';
-@import 'review';
+@import "bootstrap";
+@import "review";
+@import "users";
+@import "font-awesome";
+@import "devise/form";
+
+body{
+  background-color: #f9f9f9;
+
+}
 
 a {
   color: inherit;
@@ -7,7 +15,7 @@ a {
 }
 
 a:hover {
-  color: black;
+  color: #000000;
   text-decoration: none;
   cursor: pointer;
 }
@@ -51,7 +59,7 @@ a:hover {
 .comment-box .media-heading::before {
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  content: '';
+  content: "";
   height: 12px;
   left: -6px;
   position: absolute;

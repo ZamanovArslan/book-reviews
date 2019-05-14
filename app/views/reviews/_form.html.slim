@@ -5,4 +5,7 @@
     = f.input :text, label: false, placeholder: "Text", input_html: { class: "form-control" }, as: :text
   .form-group
     = f.input :rating, label: false, placeholder: "rating", input_html: { class: "form-control" }
+  .form-check
+    = f.check_box :is_draft, class: "form-check-input"
+    = f.label :is_draft, "Черновик", class: "form-check-label"
   = f.button :submit, class: "btn btn-primary mt-2"

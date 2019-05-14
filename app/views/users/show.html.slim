@@ -1,2 +1,49 @@
-h3 = user.nickname
-h3 = user.email
+.container.emp-profile
+  form method="post" 
+    .row
+      .col-md-4
+        .profile-img
+          - if user.avatar.attached?
+            = image_tag user.avatar, class: "rounded-circle"
+      .col-md-6
+        .profile-head
+          h5
+            = user.nickname
+          h6
+            = user.role
+          p.proile-rating
+            | Average rating :
+            span = user.average_rating
+          ul#myTab.nav.nav-tabs role="tablist" 
+            li.nav-item
+              a#home-tab.nav-link.active aria-controls="home" aria-selected="true" data-toggle="tab" href="#home" role="tab"  About
+            li.nav-item
+              = link_to "Reviews", user_reviews_url(user), class: "nav-link"
+      .col-md-2
+        - if allowed_to?(:modify?, user)
+          = link_to "Edit profile", edit_user_registration_url(current_user), class: "profile-edit-btn"
+    .row
+      .col-md-4
+        .profile-work
+          p Last reviews
+          - user.last_reviews(3).each do |review|
+            = link_to review.short_title, review_url(review)
+            br
+          p Popular reviews
+          - user.popular_reviews(3).each do |review|
+            = link_to review.short_title, review_url(review)
+            br
+
+      .col-md-8
+        #myTabContent.tab-content.profile-tab
+          #home.tab-pane.fade.show.active aria-labelledby="home-tab" role="tabpanel" 
+            .row
+              .col-md-6
+                label Nickname
+              .col-md-6
+                p = user.nickname
+            .row
+              .col-md-6
+                label Email
+              .col-md-6
+                p = user.email
