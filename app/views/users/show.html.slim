@@ -13,7 +13,10 @@
             = user.role
           p.proile-rating
             | Average rating :
-            span = user.average_rating
+            span => user.average_rating
+          p.proile-rating
+            | Standard deviation :
+            span => user.standard_deviation
           ul#myTab.nav.nav-tabs role="tablist" 
             li.nav-item
               a#home-tab.nav-link.active aria-controls="home" aria-selected="true" data-toggle="tab" href="#home" role="tab"  About

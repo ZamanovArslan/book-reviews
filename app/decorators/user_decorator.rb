@@ -17,7 +17,14 @@ class UserDecorator < Draper::Decorator
     # TODO: cache?
     finished_reviews.each { |review| sum += review.rating }
     result = sum.to_f / finished_reviews.count
-    "#{format('%.2f', result)} \\ 10"
+  end
+
+  def standard_deviation
+  aver_rating = average_rating
+    sum = 0
+    finished_reviews.each { |review| sum += (review.rating - aver_rating)**2 }
+    result = Math.sqrt(sum.to_f / finished_reviews.length)
+    format('%.2f', result)
   end
 
   def last_reviews(count)
