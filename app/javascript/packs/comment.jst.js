@@ -647,7 +647,7 @@ jst._tmpl['comment'] = function(data) {
  let comment = data["data"]
     __jst += '<div class="media comment-box" data-id="' + filter.html(comment.id) + '"> <div class="media-left"> <a href="#"> <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt=""> </a> </div> <div class="media-body"> <h4 class="media-heading">' + filter.html(comment["user"]["email"]) + '<span class="float-right">' + filter.html(comment.created_at_format) + '</span> </h4> <p>' + filter.html(comment.text) + '</p>';
  if (comment["can_modify?"]) {
-    __jst += '<a data-confirm="Are you sure?" class="btn btn-danger" rel="nofollow" data-id="' + filter.html(comment.id) + '" data-method="delete" href="/api/v1/reviews/' + filter.html(comment.review_id) + '/comments/' + filter.html(comment.id) + '">Delete comment</a>';
+    __jst += '<a class="btn btn-danger" data-id="' + filter.html(comment.id) + '" data-confirm="Are you sure?" data-remote="true" rel="nofollow" data-method="delete" href="/api/v1/reviews/' + filter.html(comment.review_id) + '/comments/' + filter.html(comment.id) + '">Delete comment</a>';
  }
     __jst += '</div> </div>';
 

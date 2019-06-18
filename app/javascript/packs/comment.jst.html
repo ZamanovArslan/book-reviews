@@ -14,7 +14,7 @@
             </h4>
             <p> <%= comment.text %> </p>
             <% if (comment["can_modify?"]) {%>
-                <a data-confirm="Are you sure?" class="btn btn-danger" rel="nofollow" data-id="<%= comment.id %>" data-method="delete" href="/api/v1/reviews/<%= comment.review_id %>/comments/<%= comment.id %>">Delete comment</a>
+                <a class="btn btn-danger" data-id="<%= comment.id %>" data-confirm="Are you sure?" data-remote="true" rel="nofollow"  data-method="delete" href="/api/v1/reviews/<%= comment.review_id %>/comments/<%= comment.id %>">Delete comment</a>
             <% } %>
         </div>
     </div>

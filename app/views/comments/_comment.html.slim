@@ -8,4 +8,4 @@
       span.float-right = comment.created_at_format
     p = comment.text
     - if allowed_to?(:destroy?, comment)
-      = link_to 'Delete comment', api_v1_review_comment_path(review_id: review.id, id: comment.id), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger', remote: true
+      = link_to 'Delete comment', api_v1_review_comment_path(review_id: review.id, id: comment.id), method: :delete, class: 'btn btn-danger', remote: true, :data => {id: comment.id, confirm: 'Are you sure?'}
