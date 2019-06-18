@@ -20,9 +20,6 @@
       = f.input :current_password, required: true, input_html: { autocomplete: "current-password", class: 'form-control' }
     .form-group
       .row
-        -if resource.avatar.attached?
-          .col-sm-4
-            = image_tag resource.my_avatar, class: "rounded-circle"
         .col-sm-8
           = f.file_field :avatar
     .form-actions

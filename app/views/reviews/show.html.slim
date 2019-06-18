@@ -1,13 +1,14 @@
 .container
-  .float-right.text-muted = review.draft_display
-  h3 = review.title
-  = review.text
-  br
-  = review.formated_rating
-  br
-  - if allowed_to?(:modify?, review)
-    = link_to "Edit", edit_review_path(review), class: "btn btn-primary"
+  .review
+    .float-right.text-muted = review.draft_display
+    h3 = review.title
+    = review.text
+    br
+    = review.formated_rating
+    br
+    - if allowed_to?(:modify?, review)
+      = link_to "Edit", edit_review_path(review), class: "btn btn-primary"
 
   = render review.comments
 
-  = render "comments/form"
+  = render "comments/ajax/form"

@@ -1,0 +1,6 @@
+h2 Commment
+= simple_form_for(review.comments.build, url: api_v1_review_comments_path(review_id: review.id), method: :post, remote: true) do |f|
+	.form-group
+ 	= f.input :text, label: false, placeholder: "Text", input_html: {class: 'form-control'}, as: :text
+	= f.button :submit, class: 'btn btn-primary mt-2'
+

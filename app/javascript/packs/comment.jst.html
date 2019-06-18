@@ -1,0 +1,28 @@
+<template name="comment" params="data">
+    <% let comment = data["data"] %>
+
+    <div class="media comment-box" data-id="<%= comment.id %>">
+        <div class="media-left">
+            <a href="#">
+                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="">
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">
+                <%= comment["user"]["email"] %>
+                <span class="float-right"> <%= comment.created_at_format %> </span>
+            </h4>
+            <p> <%= comment.text %> </p>
+            <% if (comment["can_modify?"]) {%>
+                <a data-confirm="Are you sure?" class="btn btn-danger" rel="nofollow" data-id="<%= comment.id %>" data-method="delete" href="/api/v1/reviews/<%= comment.review_id %>/comments/<%= comment.id %>">Delete comment</a>
+            <% } %>
+        </div>
+    </div>
+</template>
+
+<template name="error" params="data">
+    <% let response = data["data"] %>
+    <div class="alert alert-danger comment-error" role="alert">
+        <%= response["text"] %>
+    </div>
+</template>

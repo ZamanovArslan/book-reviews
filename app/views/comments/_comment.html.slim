@@ -1,11 +1,11 @@
-.media.comment-box
+.media.comment-box data-id = comment.id
   .media-left
     a href="#"
       img.img-responsive.user-photo src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png" /
   .media-body
     h4.media-heading
       = comment.user.email
-      .float-right = comment.created_at_format
+      span.float-right = comment.created_at_format
     p = comment.text
     - if allowed_to?(:destroy?, comment)
-      = link_to 'Delete comment', [comment.review, comment], method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'
+      = link_to 'Delete comment', api_v1_review_comment_path(review_id: review.id, id: comment.id), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger', remote: true

@@ -10,6 +10,7 @@ ruby "2.5.3"
 
 # backend
 gem "action_policy"
+gem "active_model_serializers", '~> 0.10.0'
 gem "decent_decoration", "~> 0.1.0"
 gem "decent_exposure", "3.0.0"
 gem "devise"
@@ -28,6 +29,7 @@ gem "coffee-rails", "~> 4.2"
 gem "font-awesome-rails"
 gem "gravatar_image_tag"
 gem "jquery-rails"
+gem "webpacker"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 

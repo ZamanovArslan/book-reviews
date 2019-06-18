@@ -11,4 +11,12 @@ Rails.application.routes.draw do
   resources :reviews, except: [:index] do
     resources :comments
   end
+
+  namespace 'api' do
+    namespace 'v1' do
+      resources :reviews, only: [] do
+        resources :comments, only: [:create, :destroy, :update, :index]
+      end
+    end
+  end
 end
