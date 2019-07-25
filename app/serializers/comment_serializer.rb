@@ -8,5 +8,4 @@ class CommentSerializer < ActiveModel::Serializer
   def can_modify?
     current_user.admin? || (current_user.id == object.user_id)
   end
-
 end

@@ -1,6 +1,6 @@
 RSpec.configure do |config|
-  config.before(:all)  { FFaker::Random.seed = config.seed }
-  config.before(:each) { FFaker::Random.reset! }
+  config.before(:all) { FFaker::Random.seed = config.seed }
+  config.before { FFaker::Random.reset! }
 
   config.backtrace_exclusion_patterns << /\.bundle/
 

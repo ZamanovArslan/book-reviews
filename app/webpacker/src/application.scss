@@ -1,8 +1,10 @@
-@import "bootstrap";
 @import "review";
 @import "users";
-@import "font-awesome";
 @import "devise/form";
+@import '~bootstrap/scss/bootstrap';
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
 
 body{
   background-color: #f9f9f9;

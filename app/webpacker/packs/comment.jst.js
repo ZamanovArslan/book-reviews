@@ -640,7 +640,7 @@ if(!hasGlobal) {
         filter = jst.filter,
         template = jst;
 
-/* --- app/javascript/packs/comment.jst.html --- */
+/* --- app/webpacker/packs/comment.jst.html --- */
 jst._tmpl['comment'] = function(data) {
     var __jst = '';
 

@@ -189,8 +189,8 @@ Released under the MIT license
         text: 'text/plain',
         html: 'text/html',
         xml: 'application/xml, text/xml',
-        json: 'application/json, text/javascript',
-        script: 'text/javascript, application/javascript, application/ecmascript, application/x-ecmascript'
+        json: 'application/json, text/webpacker',
+        script: 'text/webpacker, application/webpacker, application/ecmascript, application/x-ecmascript'
       };
 
       Rails.ajax = function(options) {
@@ -9557,7 +9557,7 @@ jQuery.extend( {
 			text: "text/plain",
 			html: "text/html",
 			xml: "application/xml, text/xml",
-			json: "application/json, text/javascript"
+			json: "application/json, text/webpacker"
 		},
 
 		contents: {
@@ -10351,7 +10351,7 @@ jQuery.ajaxPrefilter( function( s ) {
 // Install script dataType
 jQuery.ajaxSetup( {
 	accepts: {
-		script: "text/javascript, application/javascript, " +
+		script: "text/webpacker, application/webpacker, " +
 			"application/ecmascript, application/x-ecmascript"
 	},
 	contents: {
@@ -20469,7 +20469,7 @@ jQuery.extend( {
 			text: "text/plain",
 			html: "text/html",
 			xml: "application/xml, text/xml",
-			json: "application/json, text/javascript"
+			json: "application/json, text/webpacker"
 		},
 
 		contents: {
@@ -21448,7 +21448,7 @@ function createActiveXHR() {
 // Install script dataType
 jQuery.ajaxSetup( {
 	accepts: {
-		script: "text/javascript, application/javascript, " +
+		script: "text/webpacker, application/webpacker, " +
 			"application/ecmascript, application/x-ecmascript"
 	},
 	contents: {

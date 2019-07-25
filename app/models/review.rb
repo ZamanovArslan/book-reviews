@@ -6,7 +6,6 @@ class Review < ApplicationRecord
   paginates_per 6
   has_many :comments, dependent: :destroy
 
-  # TODO: куда убрать?
   def self.finished_reviews
     where(is_draft: false)
   end

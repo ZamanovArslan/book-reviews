@@ -7,10 +7,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 ruby "2.5.3"
+gem "rails", "~> 5.2.1"
 
 # backend
 gem "action_policy"
-gem "active_model_serializers", '~> 0.10.0'
+gem "active_model_serializers", "~> 0.10.0"
 gem "decent_decoration", "~> 0.1.0"
 gem "decent_exposure", "3.0.0"
 gem "devise"
@@ -21,17 +22,10 @@ gem "interactor", "~> 3.0"
 gem "kaminari"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.7"
-gem "rails", "~> 5.2.1"
 
 # frontend
-gem "bootstrap", "~> 4.3.1"
-gem "coffee-rails", "~> 4.2"
-gem "font-awesome-rails"
 gem "gravatar_image_tag"
-gem "jquery-rails"
 gem "webpacker"
-gem "sass-rails", "~> 5.0"
-gem "uglifier", ">= 1.3.0"
 
 # views
 gem "simple_form"
@@ -41,6 +35,8 @@ group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit", require: false
   gem "capybara", "~> 2.13"
+  gem "factory_bot_rails"
+  gem "ffaker"
   gem "rspec-rails", "~> 3.7"
   gem "rubocop", require: false
   gem "rubocop-performance", require: false

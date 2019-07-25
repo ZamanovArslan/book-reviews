@@ -1,8 +1,8 @@
 module Api
   module V1
     class CommentsController < ApplicationController
-      expose :comments, lambda {fetch_comments}
-      expose :comment, decorate: lambda {|comment|
+      expose :comments, -> { fetch_comments }
+      expose :comment, decorate: lambda { |comment|
         authorize! comment
         CommentDecorator.new(comment)
       }
@@ -16,13 +16,13 @@ module Api
         if comment.save
           render json: comment, serializer: CommentSerializer
         else
-          render json: comment.errors, :status => :unprocessable_entity
+          render json: comment.errors, status: :unprocessable_entity
         end
       end
 
       def destroy
         comment.destroy
-        render json: {:status => 200}
+        render json: { status: 200 }
       end
 
       private

@@ -17,4 +17,3 @@ describe "Comment API controller" do
     end
   end
 end
-

@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
     result = if params[:user_nickname].nil?
       current_user
     else
-      result = User.find_by(nickname: params[:user_nickname])
+      User.find_by(nickname: params[:user_nickname])
     end
     UserDecorator.new(result)
   end

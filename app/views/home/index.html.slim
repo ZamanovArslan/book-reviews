@@ -9,16 +9,7 @@ main[role="main"]
   .container
     h2 Popular reviews
     .row
-      - reviews.each do |review|
-        .col-md-4
-          .shadow-sm.p-4.mb-4.rounded.review-wrap
-            h4
-              = review.short_title
-            p
-              = review.short_text
-            .crud-review-buttons
-              = link_to "View details", review, class: "btn btn-secondary"
-              .text-muted = review.views
+      = render reviews
 
     hr
 footer.container

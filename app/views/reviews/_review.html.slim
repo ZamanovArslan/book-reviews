@@ -2,7 +2,7 @@
   .shadow-sm.p-4.mb-4.rounded.review-wrap
     .float-right.text-muted
       => review.draft_display
-      => fa_icon "eye"
+      i class="fa fa-eye pr-1" aria-hidden="true"
       = review.views
     h4
       = review.short_title
@@ -12,6 +12,6 @@
       = review.formated_rating
     .crud-review-buttons
       = link_to "View details", review, class: "btn btn-secondary"
-      - if allowed_to?(:modify?, review)
+      - if user_signed_in? && allowed_to?(:modify?, review)
         = link_to "Edit", edit_review_path(review), class: "btn btn-primary"
         = link_to "Destroy", review, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"

@@ -14,17 +14,16 @@ class UserDecorator < Draper::Decorator
 
   def average_rating
     sum = 0
-    # TODO: cache?
     finished_reviews.each { |review| sum += review.rating }
-    result = sum.to_f / finished_reviews.count
+    sum.to_f / finished_reviews.count
   end
 
   def standard_deviation
-  aver_rating = average_rating
+    aver_rating = average_rating
     sum = 0
     finished_reviews.each { |review| sum += (review.rating - aver_rating)**2 }
     result = Math.sqrt(sum.to_f / finished_reviews.length)
-    format('%.2f', result)
+    format("%.2f", result)
   end
 
   def last_reviews(count)
@@ -49,7 +48,6 @@ class UserDecorator < Draper::Decorator
     if avatar.attached?
       avatar.variant(resize: "#{size}x#{size}!")
     else
-      # TODO:
       gravatar_image_tag(object.email, size: size)
     end
   end
